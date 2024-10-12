@@ -413,3 +413,74 @@ void region_draw_hollow_line(Region *self, int x1, int y1, int x2, int y2,
     region_draw_line_one_pixel(self, p3x, p3y, p1x, p1y, r, g, b);
   }
 }
+
+/*==========================================================================
+
+  region_draw_solid_line
+
+  Draws a solid box of the specified thickness. In other words, draw
+  a filled rectangle of width t between (x1, y1) and (x2, y2), center
+  points on opposite edges.
+
+*==========================================================================*/
+void region_draw_solid_line (Region *self, int x1, int y1, int x2, int y2,
+          int thickness, BYTE r, BYTE g, BYTE b)
+  {
+  if (thickness == 1)
+    {
+    region_draw_line_one_pixel (self, x1, y1, x2, y2, r, g, b);
+    }
+  else
+    {
+    double theta = atan2 (y2 - y1, x2 - x1);
+    double q = HALFPI - theta;
+
+    int i = 0;
+    int d = i - thickness / 2;
+    int nx1 = (int) (x1 - (cos (q) * d) + 0.5);
+    int ny1 = (int) (y1 + (sin (q) * d) + 0.5);
+
+    int p1x = nx1;
+    int p1y = ny1;
+    int p2x = nx1 + (x2 - x1);
+    int p2y = ny1 + (y2 - y1);
+
+    i = thickness - 1;
+    d = i - thickness / 2;
+    nx1 = (int) (x1 - (0.5 * cos (q) * d) + 0.5);
+    ny1 = (int) (y1 + (0.5 * sin (q) * d) + 0.5);
+
+    int p3x = nx1;
+    int p3y = ny1;
+    int p4x = nx1 + (x2 - x1);
+    int p4y = ny1 + (y2 - y1);
+
+    // draw the anti-alised outer box
+    region_draw_line_one_pixel (self, p1x, p1y, p2x, p2y, r, g, b);
+    region_draw_line_one_pixel (self, p2x, p2y, p4x, p4y, r, g, b);
+    region_draw_line_one_pixel (self, p4x, p4y, p3x, p3y, r, g, b);
+    region_draw_line_one_pixel (self, p3x, p3y, p1x, p1y, r, g, b);
+
+    // This approach is okay, but it doesn't fill the area completely.
+    int width = pow(pow(p2x-p1x, 2.0) + pow(p2y-p1y, 2.0) , 0.5);
+    double col_sx = (p2x - p1x) / (double) width;
+    double col_sy = (p2y - p1y) / (double) width;
+    double row_sx = (p3x - p1x) / (double) thickness;
+    double row_sy = (p3y - p1y) / (double) thickness;
+
+    int x0, y0;
+    int x, y;
+    for (int row=0; row<thickness; row++) {
+      x0 = p1x + row_sx * row;
+      y0 = p1y + row_sy * row;
+      for (int col=0; col<width; col++) {
+        x = x0 + col_sx * col;
+        y = y0 + col_sy * col;
+        region_set_pixel (self, x, y, 0, g, 0);
+      }
+    }
+  }
+}
+
+
+>>>>>>> f6c927b (first filled rectangle attempt)

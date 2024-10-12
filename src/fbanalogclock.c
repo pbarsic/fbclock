@@ -39,9 +39,12 @@ static void draw_hand(Region *r, double angle, int cx, int cy, int thickness,
   int ly = l * cos(angle);
   int lxh = l / 10 * sin(angle + M_PI);
   int lyh = l / 10 * cos(angle + M_PI);
-  region_draw_hollow_line(r, cx + lxh, cy - lyh, cx + lx, cy - ly, thickness,
-                          cr, cg, cb);
-}
+
+  region_draw_solid_line (r, cx + lxh, cy - lyh, 
+      cx + lx, cy - ly, thickness, cr, cg, cb);
+  }
+
+>>>>>>> f6c927b (first filled rectangle attempt)
 
 /*==========================================================================
 
@@ -139,8 +142,8 @@ void program_draw_clock_in_region(Region *r, BOOL seconds, BOOL date) {
   if (seconds)
     draw_hand(r, (double)sec / 60 * TWOPI, cx, cy, 1, lm_hands, cr, cg,
               cb); // sec
-  draw_hand(r, (double)min / 60 * TWOPI, cx, cy, 5, lm_hands * 9 / 10, cr, cg,
+  draw_hand(r, (double)min / 60 * TWOPI, cx, cy, 12, lm_hands * 9 / 10, cr, cg,
             cb); // min
-  draw_hand(r, ((double)hr / 12 + (double)min / 60 / 12) * TWOPI, cx, cy, 10,
+  draw_hand(r, ((double)hr / 12 + (double)min / 60 / 12) * TWOPI, cx, cy, 20,
             lm_hands * 6 / 10, cr, cg, cb); // hour
 }
