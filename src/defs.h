@@ -17,7 +17,7 @@
 #define TRUE 1
 #endif
 
-#ifndef FALSE 
+#ifndef FALSE
 #define FALSE 0
 #endif
 
@@ -47,14 +47,10 @@ typedef unsigned char UTF8;
 typedef int32_t UTF32;
 #endif
 
-
 #ifdef __cplusplus
-#define BEGIN_DECLS exetern "C" { 
+#define BEGIN_DECLS exetern "C" {
 #define END_DECLS }
 #else
-#define BEGIN_DECLS 
-#define END_DECLS 
+#define BEGIN_DECLS
+#define END_DECLS
 #endif
-
-
-
