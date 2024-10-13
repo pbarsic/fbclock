@@ -20,9 +20,9 @@
 #define LOG_IN log_trace("Entering %s", __PRETTY_FUNCTION__);
 #define LOG_OUT log_trace("Leaving %s", __PRETTY_FUNCTION__);
 
-BEGIN_DECLS
-
 typedef void (*LogHandler)(int level, const char *message);
+
+BEGIN_DECLS
 
 // Set the logging level, 0-5
 void log_set_level(int level);

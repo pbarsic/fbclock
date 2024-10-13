@@ -35,4 +35,6 @@ void region_draw_line_one_pixel(Region *self, int x1, int x2, int y1, int y2,
                                 BYTE r, BYTE g, BYTE b);
 void region_draw_hollow_line(Region *self, int x1, int x2, int y1, int y2,
                              int thickness, BYTE r, BYTE g, BYTE b);
+void region_draw_solid_line(Region *self, int x1, int x2, int y1, int y2,
+                            int thickness, BYTE r, BYTE g, BYTE b);
 END_DECLS

@@ -44,7 +44,6 @@ static void draw_hand(Region *r, double angle, int cx, int cy, int thickness,
       cx + lx, cy - ly, thickness, cr, cg, cb);
   }
 
->>>>>>> f6c927b (first filled rectangle attempt)
 
 /*==========================================================================
 
