@@ -40,10 +40,9 @@ static void draw_hand(Region *r, double angle, int cx, int cy, int thickness,
   int lxh = l / 10 * sin(angle + M_PI);
   int lyh = l / 10 * cos(angle + M_PI);
 
-  region_draw_solid_line (r, cx + lxh, cy - lyh, 
-      cx + lx, cy - ly, thickness, cr, cg, cb);
-  }
-
+  region_draw_solid_line(r, cx + lxh, cy - lyh, cx + lx, cy - ly, thickness, cr,
+                         cg, cb);
+}
 
 /*==========================================================================
 

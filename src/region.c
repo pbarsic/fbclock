@@ -23,6 +23,13 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include "bitmap_font.h"
+#include "defs.h"
+#include "framebuffer.h"
+#include "log.h"
+#include "region.h"
+#include "string.h"
+
 // Bytes per pixel
 #define BPP 3
 
@@ -414,7 +421,7 @@ void region_draw_hollow_line(Region *self, int x1, int y1, int x2, int y2,
   Simple utility to sort an array of 4 ints.
 
 *==========================================================================*/
-void bubble4(int *sort) {
+static void bubble4(int *sort) {
   int i, j;
   for (i = 0; i < 3; i++) {
     for (j = i + 1; j < 4; j++) {
@@ -427,12 +434,26 @@ void bubble4(int *sort) {
   }
 }
 
+/*==========================================================================
+
+  Line
+
+  Struct for keeping the parameters of a line.
+
+*==========================================================================*/
 struct Line {
   double slope;
   double intercept;
 };
 
-struct Line newline(int x1, int y1, int x2, int y2) {
+/*==========================================================================
+
+  newline
+
+  Create new line parameters given two input points.
+
+*==========================================================================*/
+static struct Line newline(int x1, int y1, int x2, int y2) {
   struct Line l;
   if (abs(x2 - x1) == 0) {
     l.slope = 0;
@@ -443,7 +464,16 @@ struct Line newline(int x1, int y1, int x2, int y2) {
   return l;
 }
 
-int point(struct Line *l, int x) { return ceil(l->intercept + l->slope * x); }
+/*==========================================================================
+
+  point
+
+  Given a Line struct and an x-value, return the y(x) defined by Line.
+
+*==========================================================================*/
+static int point(struct Line *l, int x) {
+  return ceil(l->intercept + l->slope * x);
+}
 
 /*==========================================================================
 
