@@ -8,8 +8,9 @@
 
 #pragma once
 
-#include "defs.h"
 #include <stdio.h>
+
+#include "defs.h"
 
 BEGIN_DECLS
 

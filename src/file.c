@@ -13,11 +13,6 @@
 ============================================================================*/
 
 #define _GNU_SOURCE
-#include "file.h"
-#include "defs.h"
-#include "list.h"
-#include "log.h"
-#include "string.h"
 #include <dirent.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -28,6 +23,12 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+
+#include "defs.h"
+#include "file.h"
+#include "list.h"
+#include "log.h"
+#include "string.h"
 
 /*==========================================================================
   file_readline

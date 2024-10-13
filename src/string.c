@@ -16,11 +16,6 @@
 ============================================================================*/
 
 #define _GNU_SOURCE
-#include "string.h"
-#include "defs.h"
-#include "file.h"
-#include "list.h"
-#include "log.h"
 #include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -32,6 +27,12 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+
+#include "defs.h"
+#include "file.h"
+#include "list.h"
+#include "log.h"
+#include "string.h"
 
 struct _String {
   char *str;

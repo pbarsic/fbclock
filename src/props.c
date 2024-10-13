@@ -12,20 +12,21 @@
 ============================================================================*/
 
 #define _GNU_SOURCE
-#include "props.h"
-#include "defs.h"
-#include "file.h"
-#include "list.h"
-#include "log.h"
-#include "numberformat.h"
-#include "nvp.h"
-#include "string.h"
 #include <ctype.h>
 #include <inttypes.h>
 #include <memory.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "defs.h"
+#include "file.h"
+#include "list.h"
+#include "log.h"
+#include "numberformat.h"
+#include "nvp.h"
+#include "props.h"
+#include "string.h"
 
 struct _Props {
   List *list;

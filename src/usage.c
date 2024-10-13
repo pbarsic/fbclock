@@ -8,12 +8,13 @@
 ==========================================================================*/
 
 #define _GNU_SOURCE
-#include "usage.h"
-#include "feature.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+
+#include "feature.h"
+#include "usage.h"
 
 /*==========================================================================
   usage_show

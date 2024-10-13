@@ -13,13 +13,14 @@
 ============================================================================*/
 
 #define _GNU_SOURCE
-#include "list.h"
-#include "log.h"
-#include "string.h"
 #include <memory.h>
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "list.h"
+#include "log.h"
+#include "string.h"
 
 typedef struct _ListItem {
   struct _ListItem *next;

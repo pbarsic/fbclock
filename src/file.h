@@ -9,10 +9,11 @@
 
 #pragma once
 
-#include "list.h"
-#include "string.h"
 #include <stdio.h>
 #include <time.h>
+
+#include "list.h"
+#include "string.h"
 
 // File search constants, for file_expand_directory() and
 //   path_expand_directory()

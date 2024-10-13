@@ -7,12 +7,6 @@
 ============================================================================*/
 
 #define _GNU_SOURCE
-#include "region.h"
-#include "bitmap_font.h"
-#include "defs.h"
-#include "framebuffer.h"
-#include "log.h"
-#include "string.h"
 #include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -28,6 +22,13 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+
+#include "bitmap_font.h"
+#include "defs.h"
+#include "framebuffer.h"
+#include "log.h"
+#include "region.h"
+#include "string.h"
 
 // Bytes per pixel
 #define BPP 3

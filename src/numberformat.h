@@ -8,8 +8,9 @@
 
 #pragma once
 
-#include "feature.h"
 #include <stdint.h>
+
+#include "feature.h"
 
 BEGIN_DECLS
 

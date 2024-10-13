@@ -15,13 +15,6 @@
 ==========================================================================*/
 
 #define _GNU_SOURCE
-#include "program_context.h"
-#include "defs.h"
-#include "feature.h"
-#include "log.h"
-#include "props.h"
-#include "string.h"
-#include "usage.h"
 #include <errno.h>
 #include <getopt.h>
 #include <stdarg.h>
@@ -29,6 +22,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+
+#include "defs.h"
+#include "feature.h"
+#include "log.h"
+#include "program_context.h"
+#include "props.h"
+#include "string.h"
+#include "usage.h"
 
 struct _ProgramContext {
   Props *props;

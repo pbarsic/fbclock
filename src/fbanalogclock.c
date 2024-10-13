@@ -9,13 +9,6 @@
 
 ==========================================================================*/
 
-#include "fbanalogclock.h"
-#include "feature.h"
-#include "file.h"
-#include "framebuffer.h"
-#include "list.h"
-#include "region.h"
-#include "string.h"
 #include <getopt.h>
 #include <math.h>
 #include <signal.h>
@@ -24,6 +17,14 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+
+#include "fbanalogclock.h"
+#include "feature.h"
+#include "file.h"
+#include "framebuffer.h"
+#include "list.h"
+#include "region.h"
+#include "string.h"
 
 static const double TWOPI = 2.0 * M_PI;
 

@@ -17,13 +17,14 @@
 ============================================================================*/
 
 #define _GNU_SOURCE
-#include "nvp.h"
-#include "defs.h"
-#include "log.h"
 #include <ctype.h>
 #include <memory.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "defs.h"
+#include "log.h"
+#include "nvp.h"
 
 struct _NameValuePair {
   char *name;
